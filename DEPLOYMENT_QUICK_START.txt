@@ -1,0 +1,98 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║     PAKISTAN BAKERY LEAD SCRAPER - DEPLOYMENT QUICK START                    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+✅ WHAT'S READY:
+  ✓ Frontend (React/TypeScript/Vite) - Ready for Vercel
+  ✓ Backend (FastAPI/Python) - Ready for Render
+  ✓ Environment configuration - API URL configurable
+  ✓ Build tested locally - No errors
+  ✓ API tested - Working with sample data
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 DEPLOYMENT STEPS (3 EASY STEPS):
+
+1. PUSH TO GITHUB:
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+   git push -u origin main
+
+2. DEPLOY BACKEND TO RENDER:
+   a) Go to render.com → New Web Service
+   b) Connect your GitHub repo
+   c) Name: pakistan-bakery-api
+   d) Build: pip install -r api/requirements.txt && playwright install
+   e) Start: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+   f) Deploy and copy the URL (e.g., https://pakistan-bakery-api.onrender.com)
+
+3. DEPLOY FRONTEND TO VERCEL:
+   a) Go to vercel.com → Add Project
+   b) Import your GitHub repo
+   c) Root Directory: dashboard
+   d) Add Environment Variable:
+      VITE_API_URL = https://pakistan-bakery-api.onrender.com (from step 2)
+   e) Deploy
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 KEY FILES CREATED:
+
+  dashboard/
+  ├── .env                          (Local dev: localhost:8000)
+  ├── .env.example                  (Template for environment)
+  ├── vercel.json                   (Vercel deployment config)
+  ├── src/App.css                   (Styling)
+  └── package.json                  (Frontend dependencies)
+
+  api/
+  └── requirements.txt              (Backend dependencies)
+
+  render.yaml                        (Render deployment config)
+  DEPLOYMENT.md                      (Full deployment guide)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🧪 TEST LOCALLY BEFORE DEPLOYING:
+
+  Terminal 1:
+    cd /path/to/project
+    python -m uvicorn api.main:app --reload --port 8000
+
+  Terminal 2:
+    cd dashboard
+    npm run dev
+
+  Then visit http://localhost:5173 and try the scraper
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  IMPORTANT:
+
+  • Make sure your GitHub repo is PUBLIC (so Render/Vercel can access it)
+  • Save your Render backend URL - you'll need it for Vercel env vars
+  • Render free tier has 750 hours/month limit
+  • Playwright installation takes ~5 min on first deploy (be patient!)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 EXPECTED RESULTS:
+
+  After deployment:
+  • Frontend: https://your-project.vercel.app (working React app)
+  • Backend: https://pakistan-bakery-api.onrender.com (API endpoints)
+  • /health → {"status": "ok"}
+  • /leads → Returns scraped leads
+  • /scrape → Start new scraping job
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❓ NEED HELP?
+
+  Read: DEPLOYMENT.md (full guide with troubleshooting)
+  Test: Run locally with npm run dev + uvicorn
+  Check: Render/Vercel dashboards for detailed logs
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
