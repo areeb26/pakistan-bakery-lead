@@ -1,0 +1,6 @@
+export { CampaignsPage }      from './CampaignsPage'
+export { CampaignDetailPage } from './CampaignDetailPage'
+export { ScrapeHistoryPage }  from './ScrapeHistoryPage'
+export { LoginPage }          from './LoginPage'
+export { RegisterPage }       from './RegisterPage'
+export { default as ScrapePage } from './ScrapePage'
